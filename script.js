@@ -37,7 +37,7 @@ class Bird {
             ctx.beginPath();
             ctx.arc(this.x+playerWidth/2, this.y+playerWidth/2, this.playerWidth / 2, 0, Math.PI * 2);
             ctx.fill();
-            //this.y += this.jump ? -5 : gravity * Math.random();    //TODO: REMOVE RANDOM
+            //this.y += this.jump ? -5 : gravity;
             if(this.individual.nn.ff([nextPipePosition - playerPosX - playerWidth, this.y - pipes[activePipe].y, this.y - pipes[activePipe].y + pipesGap])[0] > .5) this.doJump();
             this.y += this.jump ? -2 * gravity : gravity
             this.checkCollision();
