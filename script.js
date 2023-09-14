@@ -1,4 +1,3 @@
-
 // Classes
 
 class Pipe{
@@ -169,3 +168,6 @@ document.addEventListener('keydown', (e) => {
         resetGame();
     }
 });
+
+let canvasWidth = window.innerWidth - 72 >= 600 ? 600 : window.innerWidth - 72;
+document.getElementsByTagName("canvas")[0].width = canvasWidth;
