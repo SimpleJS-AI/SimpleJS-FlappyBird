@@ -169,5 +169,9 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+window.addEventListener('resize', () => {
+    location.reload();
+});
+
 let canvasWidth = window.innerWidth - 72 >= 600 ? 600 : window.innerWidth - 72;
 document.getElementsByTagName("canvas")[0].width = canvasWidth;
