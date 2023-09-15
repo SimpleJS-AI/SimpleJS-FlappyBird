@@ -8,7 +8,7 @@ class Pipe{
         this.width = width;
     }
     draw(){
-        ctx.fillStyle = 'lightgray';
+        ctx.fillStyle = colors[1];
         ctx.fillRect(this.x, this.y - canvas.height, this.width, canvas.height);
         ctx.fillRect(this.x, this.y + this.gap, this.width, canvas.height);
         this.x -= speed;
@@ -32,7 +32,7 @@ class Bird {
     draw(){
         //draw circle
         if(!this.failed) {
-            ctx.fillStyle = 'yellow';
+            ctx.fillStyle = colors[1];
             ctx.beginPath();
             ctx.arc(this.x+playerWidth/2, this.y+playerWidth/2, this.playerWidth / 2, 0, Math.PI * 2);
             ctx.fill();
@@ -69,6 +69,12 @@ class Bird {
         this.failed = false;
     }
 }
+
+const colors = [
+    "#ffb3b3",
+    "#5f131b",
+    "#7e2a2f",
+    ];
 
 
 
@@ -117,15 +123,15 @@ function draw() {
         pipes.push(new Pipe(pipeGap, pipeWidth));
     }
 
-    ctx.fillStyle = 'black';
+    ctx.fillStyle = colors[0];
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     pipes.forEach(pipe => {pipe.draw()});
 
-    ctx.fillStyle = 'red';
+    /*ctx.fillStyle = 'red';
     ctx.fillRect(nextPipePosition, 0, 5, 5);
-    ctx.fillRect(lastPipePosition, 5, 5, 5);
+    ctx.fillRect(lastPipePosition, 5, 5, 5);*/
     ga.forEach(obj => {obj.draw()});
-    pipes[activePipe].draw2();
+    //pipes[activePipe].draw2();
     ctx.fillStyle = 'white';
     ctx.font = '20px Arial';
     ctx.fillText(score + " | " + generation + " | " + record, 10, 20);

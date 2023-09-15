@@ -1,13 +1,19 @@
+:root {
+  --c1: #ffb3b3;
+  --c2: #5f131b;
+  --c3: #7e2a2f;
+}
+
 body {
   display: flex;
-  background-color: #1a1a1a;
+  background-color: var(--c1);
   margin: 0;
   padding: 0;
 }
 
 canvas {
   border-radius: 30px;
-  border: 5px solid white;
+  border: 5px solid var(--c2);
   margin-top: 8px;
 }
 
@@ -26,7 +32,7 @@ button {
   cursor: pointer;
   transition: all 0.2s ease;
   border-radius: 12px;
-  border: 5px solid white;
+  border: 5px solid var(--c2);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,7 +41,7 @@ button:hover {
   transform: scale(1.05);
 }
 button span {
-  color: white;
+  color: var(--c2);
 }
 
 .material-symbols-rounded {
