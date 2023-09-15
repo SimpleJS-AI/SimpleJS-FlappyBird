@@ -94,7 +94,7 @@ let nextPipePosition = canvas.width;
 let lastPipePosition = 0;
 let activePipe = 0;
 
-let ga = new GeneticAlgorithm(500, 3, 10, 1, .1, Bird, playerPosX, playerWidth);
+let ga = new GeneticAlgorithm(100, 3, 10, 1, .1, Bird, playerPosX, playerWidth);
 let failedIndividuals = 0;
 let generation = 0;
 let record = 0;
