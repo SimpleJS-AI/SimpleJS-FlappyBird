@@ -99,8 +99,11 @@ let failedIndividuals = 0;
 let generation = 0;
 let record = 0;
 
+let fps = 120;
+
 requestAnimationFrame(draw);
 function draw() {
+    let now = Date.now();
     nextPipePosition -= speed;
     lastPipePosition -= speed;
     score ++;
@@ -136,6 +139,8 @@ function draw() {
             requestAnimationFrame(draw);
         }, 1000);
     }
+    while(Date.now() - now < 1000 / fps){}
+    console.log(Date.now() - now);
     requestAnimationFrame(draw);
 }
 
