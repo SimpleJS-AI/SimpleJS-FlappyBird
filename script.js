@@ -28,16 +28,22 @@ class Bird {
         this.playerWidth = playerWidth;
         this.jump = false;
         this.failed = false;
+        this.jumpTickCounter = 0;
     }
     draw(){
         //draw circle
         if(!this.failed) {
-            ctx.fillStyle = colors[1];
+            ctx.fillStyle = colors[2];
             ctx.beginPath();
             ctx.arc(this.x+playerWidth/2, this.y+playerWidth/2, this.playerWidth / 2, 0, Math.PI * 2);
             ctx.fill();
             //this.y += this.jump ? -5 : gravity;
             if(this.individual.nn.ff([nextPipePosition - playerPosX - playerWidth, this.y - pipes[activePipe].y, this.y - pipes[activePipe].y + pipesGap])[0] > .5) this.doJump();
+            this.jumpTickCounter++;
+            if(this.jumpTickCounter >= 10){
+                this.jump = false;
+                this.jumpTickCounter = 0;
+            }
             this.y += this.jump ? -2 * gravity : gravity
             this.checkCollision();
         }
@@ -57,12 +63,13 @@ class Bird {
         this.individual.setFitness(fitnessValue);
     }
     doJump(){
-        if(!this.jump) {
+        /*if(!this.jump) {
             this.jump = true;
             setTimeout(() => {
                 this.jump = false
             }, 200);
-        }
+        }*/
+        this.jump = true;
     }
     reset(){
         this.y = 200;
@@ -109,7 +116,6 @@ let fps = 120;
 
 requestAnimationFrame(draw);
 function draw() {
-    let now = Date.now();
     nextPipePosition -= speed;
     lastPipePosition -= speed;
     score ++;
@@ -145,8 +151,6 @@ function draw() {
             requestAnimationFrame(draw);
         }, 1000);
     }
-    while(Date.now() - now < 1000 / fps){}
-    console.log(Date.now() - now);
     requestAnimationFrame(draw);
 }
 
