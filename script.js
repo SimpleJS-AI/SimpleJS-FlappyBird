@@ -142,7 +142,7 @@ function draw() {
     ctx.font = '20px Arial';
     ctx.fillText(score + " | " + generation + " | " + record, 10, 20);
     if(!gamePlaying) return;
-    if(failedIndividuals >= ga.popSize){
+    if(failedIndividuals >= ga.populationSize){
         if(score > record) record = score;
         resetGame();
         setTimeout(() => {
