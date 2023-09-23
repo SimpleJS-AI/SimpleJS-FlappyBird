@@ -153,8 +153,9 @@ function draw() {
     }
     requestAnimationFrame(draw);
 }
-
+let data = [];
 function resetGame(){
+    data.push(score);
     ga.evolve();
     generation++;
     score = 0;
