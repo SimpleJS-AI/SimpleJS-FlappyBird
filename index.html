@@ -8,10 +8,10 @@
 </head>
 <body>
 <div class="controls">
-    <button id="start"><span class="material-symbols-rounded">play_arrow</span></button>
-    <button id="reset"><span class="material-symbols-rounded">refresh</span></button>
-    <button id="next-evolution"><span class="material-symbols-rounded">skip_next</span></button>
-    <button id="build-mode"><span class="material-symbols-rounded">edit</span></button>
+    <button id="start" onclick="gamePlaying = !gamePlaying; runFrame(); toggleStartButton()"><span class="material-symbols-rounded">play_arrow</span></button>
+    <button id="reset" onclick="resetGame(); skip = false; toggleSkipButton(); toggleStartButton()"><span class="material-symbols-rounded">refresh</span></button>
+    <button id="fast-forward" onclick="skip = !skip; toggleSkipButton()"><span class="material-symbols-rounded">fast_forward</span></button>
+<!--    <button id="build-mode"><span class="material-symbols-rounded">edit</span></button>-->
 </div>
 <canvas id="game" width="400" height="400"></canvas>
 <link rel="stylesheet" href="style.css">

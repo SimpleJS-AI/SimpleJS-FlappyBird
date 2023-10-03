@@ -1,19 +1,19 @@
 :root {
-  --c1: #ffb3b3;
-  --c2: #5f131b;
-  --c3: #7e2a2f;
+  --d1: #ddd894;
+  --d2: #524e14;
+  --d3: #7a7852;
 }
 
 body {
   display: flex;
-  background-color: var(--c1);
+  background-color: var(--d1);
   margin: 0;
   padding: 0;
 }
 
 canvas {
   border-radius: 30px;
-  border: 5px solid var(--c2);
+  border: 5px solid var(--d2);
   margin-top: 8px;
 }
 
@@ -32,7 +32,7 @@ button {
   cursor: pointer;
   transition: all 0.2s ease;
   border-radius: 12px;
-  border: 5px solid var(--c2);
+  border: 5px solid var(--d2);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,7 +41,7 @@ button:hover {
   transform: scale(1.05);
 }
 button span {
-  color: var(--c2);
+  color: var(--d2);
 }
 
 .material-symbols-rounded {
