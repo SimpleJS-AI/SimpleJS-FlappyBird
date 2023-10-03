@@ -142,9 +142,10 @@ function runFrame(){
     }else {
         //let b = new Date().getTime();
         //fpss.push(b-a);
-        setTimeout(() => {
+        /*setTimeout(() => {
             requestAnimationFrame(runFrame);
-        }, performance.now() + 1000 / 120 - nextFrameTime);
+        }, performance.now() + 1000 / 120 - nextFrameTime);*/
+        requestAnimationFrame(runFrame);
     }
 }
 function draw() {
