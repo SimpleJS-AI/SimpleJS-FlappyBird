@@ -238,3 +238,40 @@ window.addEventListener('resize', () => {
 
 let canvasWidth = window.innerWidth - 72 >= 400 ? 400 : window.innerWidth - 72;
 document.getElementsByTagName("canvas")[0].width = canvasWidth;
+
+// PRESENTATION MODE
+let presentationMode = false;
+const query = window.location.search;
+const queryParams = new URLSearchParams(query);
+if(queryParams.get('presentation') === 'true'){
+    presentationMode = true;
+    document.body.style.backgroundColor = 'black';
+    let canvas = document.getElementsByTagName("canvas")[0];
+    canvas.style.position = 'absolute';
+    canvas.style.top = '50%';
+    canvas.style.left = '50%';
+    canvas.style.transform = 'translate(-50%, -50%)';
+    canvas.style.border = 'none';
+    canvas.style.borderRadius = '0';
+    document.getElementsByClassName('controls')[0].style.display = 'none';
+}
+let pageDownCounter = 0;
+document.addEventListener("keydown", function (e) {
+    if(e.key === "PageDown" && presentationMode){
+        switch (pageDownCounter) {
+            case 0:
+                gamePlaying = true;
+                runFrame();
+                break;
+            case 1:
+                skip = true;
+                break;
+            case 2:
+                skip = false;
+                break;
+            case 3:
+                gamePlaying = false;
+        }
+        pageDownCounter++;
+    }
+});
