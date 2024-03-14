@@ -245,6 +245,10 @@ const query = window.location.search;
 const queryParams = new URLSearchParams(query);
 
 if(queryParams.get('qr') === 'true'){
+    document.querySelector(":root").style.setProperty("--d1", "#e3e3e3");
+    document.querySelector(":root").style.setProperty("--d2", "#1f1f1f");
+    document.querySelector(":root").style.setProperty("--d3", "#aaa");
+
     document.body.style.flexDirection = 'column-reverse';
     document.body.style.padding = '8px';
     document.getElementsByClassName('controls')[0].style.gridTemplateColumns = 'repeat(4, 40px)';
