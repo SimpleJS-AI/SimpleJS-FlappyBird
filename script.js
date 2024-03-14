@@ -243,6 +243,16 @@ document.getElementsByTagName("canvas")[0].width = canvasWidth;
 let presentationMode = false;
 const query = window.location.search;
 const queryParams = new URLSearchParams(query);
+
+if(queryParams.get('qr') === 'true'){
+    document.body.style.flexDirection = 'column-reverse';
+    document.body.style.padding = '8px';
+    document.getElementsByClassName('controls')[0].style.gridTemplateColumns = 'repeat(4, 40px)';
+    document.getElementsByClassName('controls')[0].style.gridTemplateRows = '40px';
+    document.getElementsByClassName('controls')[0].style.columnGap = '8px';
+    document.getElementsByClassName('controls')[0].style.paddingLeft = '0';
+}
+
 if(queryParams.get('presentation') === 'true'){
     presentationMode = true;
     document.body.style.backgroundColor = 'black';
